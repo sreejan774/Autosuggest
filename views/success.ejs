@@ -1,0 +1,13 @@
+<%- include("header") %>
+
+  <div class="successMsg box">
+    <div class="innerSuccessBox">
+      <h5>Contact <%= action %> successfully</h5>
+      <img class=" tickImg"src="images/tick.png" alt="tick-img">
+      <form action="/success" method="post">
+        <button type="submit" class="btn btn-outline-success" name="button">Homepage</button>
+      </form>
+    </div>
+
+  </div>
+<%- include("footer") %>

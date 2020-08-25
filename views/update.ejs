@@ -1,0 +1,26 @@
+
+<%- include("header") %>
+
+    <h1 class="addHeading">Update Contact</h1>
+    <h1 id="heading" class="box"><%=listTitle %></h1>
+    <div class="container-fluid box">
+      <div class="addForm">
+
+
+      <form class="item" action="/update" method="post">
+        <div class="form-group">
+         <input type="text" class="form-control" name="name" placeholder="<%= contact.name %>" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <input type="number" name="number" class="form-control" placeholder="<%= contact.number %>" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" placeholder="<%= contact.email %>" required autocomplete="off">
+
+        </div>
+
+        <button type="submit" name="button"  class="btn btn-outline-info" value="<%= contact.id%>">Save Changes</button>
+      </form>
+      </div>
+    </div>
+<%- include("footer") %>

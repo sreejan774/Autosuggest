@@ -1,0 +1,16 @@
+<%- include("header") %>
+
+    <h1 class="addHeading">Remove Contact</h1>
+    <div class="removeMsgBox box">
+      <div class="innerbox">
+        <h5>Are you sure you want to delete the contact ! </h5>
+        <h6>Once deleted you will not be able to retrieve.</h6>
+        <form action="/remove" method="post">
+          <button type="submit" class="btn btn-outline-danger" name="button" value="<%= id %>">Yes</button>
+          <button type="submit" class="btn btn-outline-success" name="button" value="No">No</button>
+        </form>
+      </div>
+
+    </div>
+
+<%- include("header") %>

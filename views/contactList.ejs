@@ -1,0 +1,79 @@
+<%- include("header") %>
+  <h1 id="heading" class="box"><%=listTitle %></h1>
+  <div class="container-fluid" class="box">
+    <div class="row" class="box">
+      <div class="col-6 box">
+        <h3 class="subHeading box">Contacts</h3>
+        <form action="/" method="post">
+          <button class="btn btn-outline-info" type="submit" name="route" value="add">Add Contact</button>
+        </form>
+        <div class="box">
+
+          <% for(var i=0;i<newContactList.length;i++){ %>
+          <div class="row">
+            <div class="col contact-content ">
+              <%= newContactList[i].name %>
+            </div>
+            <div class="col">
+
+              <form class="" action="/" method="post">
+                <!-- update-button -->
+                <button type="submit" name="route" value="update=<%= newContactList[i]._id %>" class="btn btn-outline-light" ><i class="fas fa-user-edit"></i></button>
+                <!-- remove button -->
+                <button type="submit" name="route"  value="remove=<%= newContactList[i]._id %>" class="btn btn-outline-light" ><i class="fas fa-user-times"></i></button>
+                <!-- toggler   -->
+                <button type="button" class="collapsible btn btn-outline-light" id="<%= newContactList[i]._id %>"><i class="fas fa-chevron-circle-down"></i></button>
+              </form>
+
+            </div>
+
+          </div>
+          <div class="content content-box listContent" id="#<%= newContactList[i]._id %>">
+            <p style="display: none"><%= newContactList[i].name %></p>
+            <p><%= newContactList[i].number %></p>
+            <hr>
+            <p><%= newContactList[i].email %></p>
+          </div>
+          <% } %>
+
+        </div>
+      </div>
+      <div class="col-6 box search-box">
+        <h3 class="subHeading box">Search</h3>
+        <form class="" action="/search" method="post">
+          <div class="form-row">
+            <div class="col-8">
+              <input type="text" name="search" class="search-input form-control" value="" placeholder="Search" autocomplete="off" required>
+              <div id="suggestion-box">
+
+              </div>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-outline-info" name="button">Search</button>
+            </div>
+          </div>
+
+         </form>
+         <% if(path){ %>
+           <% if( searchResult.length === 0 ){ %>
+             <div class="searchResult">
+               <button type="button" class="closeBtn btn btn-outline-light" name="button"><i class="fas fa-times"></i></button>
+               <p>DOES NOT EXIST</p>
+             </div>
+           <% }else{ %>
+             <div class="searchResult">
+               <button type="button" class="closeBtn btn btn-outline-light" name="button"><i class="fas fa-times"></i></button>
+               <p><strong> Name : </strong><%= searchResult[0].name %></p>
+               <hr>
+               <p><strong> Number : </strong><%= searchResult[0].number %></p>
+               <hr>
+               <p><strong>Email : </strong><%= searchResult[0].email %></p>
+             </div>
+           <% } %>
+           <% path = false%>
+         <% } %>
+       </div>
+     </div>
+     <script src="js/toggler.js" charset="utf-8"></script>
+     <script src="js/trie.js" charset="utf-8"></script>
+ <%- include("footer") %>
