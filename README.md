@@ -10,5 +10,5 @@ The main focus of the project is to make efficient searching by implementing the
 ## OUTPUT
 ![](OUTPUT1.png)
 
---
+---
 ![](OUTPUT2.png)
